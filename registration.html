@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div{
+
+width:400px;
+height:350px;
+background-color: green;
+padding:20px;
+margin-left:200px;
+margin-top: 300px;
+
+
+      }
+    
+
+    
+      input {
+
+        background-color:aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <diV>
+    <form action="">
+      <label for="username">username:</label>
+      <input type="text" placeholder="username"  required>
+      <br><br>
+      <label for="password">password:</label>
+      <input type="text" placeholder="password"  required/><br><br>
+      <label for="confirmpassword">password:</label>
+      <input type="text" placeholder="confirmpassword" required/><br><br>
+    <label for="DateOfBirth">date of Birth:</label>
+      <input type="date"  placeholder="DateOfBirth" required/><br><br>
+      <input type="checkbox" required/><label>rememembr me</label><br><br>
+      <input type="submit" value="submit" style="margin-left: 130px;" />
+
+      
+
+
+      
+    </form>
+</diV>
+    <script>
+
+     
+
+
+
+      // trough events
+
+      var formm = document.forms;
+
+     // console.log(formm[0]);
+      //console.log(formm.value)
+      var arr = [];
+
+formm[0].addEventListener("submit", hello)
+function hello(event)
+{
+event.preventDefault();
+     
+//console.log(event)
+var userdata={
+  username:event.target[0].value,
+  password:event.target[1].value,
+  cnfrmpassword:event.target[2].value,
+  dob:event.target[3].value
+};
+if(userdata.password==userdata.cnfrmpassword)
+{
+arr.push(userdata)
+ window.location.assign("./login.html")
+}
+else{
+  alert("enter correct password")
+}
+console.log(arr)
+event.target[0].value = "";
+event.target[1].value = "";
+event.target[2].value = "";
+event.target[3].value = "";
+ 
+
+ window.localStorage.setItem("pspk",JSON.stringify(arr))   
+}
+      
+    </script>
+  </body>
+</html>
